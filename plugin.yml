@@ -1,0 +1,43 @@
+name: SkylasBrewingDisabler
+author: Skyla
+main: com.projektskybox.skybrewdisable.P
+version: 1.2
+description: Can disable potion brewing, splash potions, lingering potions, and the drinking of potions
+api-version: 1.16
+commands:
+   enable-potion-making:
+      description: Toggles potion making on/off
+      permission: skybrewdisable.disable-potion-making 
+      usage: "Usage: /<command> [true/false]"
+      permission-message: Queen Taiti does not allow it!
+   skybrewdisable:
+      description: Reloads plugin config
+      permission: skybrewdisable.reload
+      aliases: sbd
+      usage: "Usage: /<command> reload"
+      permission-message: Queen Taiti does not allow it!
+   splash-potions:
+      description: Toggles splash pots on/off, toggles deleting them after use on/off, and toggles their usage in dispensers on/off
+      permission: skybrewdisable.splash-potions
+      usage: "Usage: /<command> [enabled/delete-item/can-use-dispensers] [true/false]"
+      permission-message: Queen Taiti does not allow it!
+   linger-potions:
+      description: Toggles lingering potions on/off, toggles deleting them after use on/off, and toggles their usage in dispensers on/off
+      permission: skybrewdisable.linger-potions
+      usage: "Usage: /<command> [enabled/delete-item/can-use-in-dispensers] [true/false]"
+      permission-message: Queen Taiti does not allow it!
+   potion-drinking:
+      description: Toggles the ability to drink potions on/off. Toggles deleting the potion item after attempted use on/off.
+      permission: skybrewdisable.potion-drinking
+      usage: "Usage: /<command> [enabled/delete-item] [true/false]"
+      permission-message: Queen Taiti does not allow it!
+permissions:
+   skybrewdisable.all:
+      description: Allows the usage of all plugin commands
+      default: op
+      children:
+         skybrewdisable.disable-potion-making: true 
+         skybrewdisable.reload: true 
+         skybrewdisable.splash-potions: true
+         skybrewdisable.potion-drinking: true
+         skybrewdisable.linger-potions: true

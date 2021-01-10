@@ -1,0 +1,48 @@
+reload-message: "&a&lReloaded Skyla's Potion Disabler!"
+
+brewing:
+   enabled: false
+splash-potions:
+   enabled: false
+   delete-item: false
+   disable-dispensers: true
+   deny-use-messages: 
+      - "Splash potions are disabled!"
+      - "You can't do that!"
+   item-deletion-message: "They are gone..."
+lingering-potions:
+   enabled: false
+   delete-item: false
+   disable-dispensers: true
+   deny-use-messages: 
+      - "Lingering potions are disabled!"
+      - "You can't do that!"
+   item-deletion-message: "They are gone..."
+drinking-potions:
+   enabled: false
+   delete-item: false
+   deny-drink-messages: 
+      - "You try a sip of the potion but it tastes horrendous!"
+      - "You check the label of the potion and see it expired 30 years ago!"
+   item-deletion-message: "You smash the bottles to the ground, destroying them in the process..."
+   types-to-disable:
+      night-vision: true
+      invis: true
+      jump-boost: true
+      fire-res: true
+      speed: true
+      slowness: true
+      water-breathing: true
+      healing: true
+      damage: true
+      poison: true
+      regen: true
+      strength: true
+      weakness: true
+      luck: true
+      turtle-master: true
+      slow-fall: true
+
+      
+      
+      
