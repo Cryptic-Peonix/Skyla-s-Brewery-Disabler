@@ -1,7 +1,9 @@
 # Skyla-s-Brewery-Disabler
 
-Purpouse:
-A Minecraft 1.16 spigot plugin that disables brewing, splash potions, lingering potions, and drinking potions. All fully configurable via commands and the config.yml file.
+## What is this?
+- A Minecraft spigot plugin for version 1.16.
+- Disables brewing, splash potions, lingering potions, and drinkable potions
+- Fully configurable with the config.yml file
 
 To Reload the Plugin:
   Use /sbd reload
