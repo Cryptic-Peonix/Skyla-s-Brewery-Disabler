@@ -9,7 +9,7 @@
 
 ## More in-depth Plugin info
 ### To Reload the Plugin:
-    - Use /sbd reload
+    Use the command /sbd reload
 
 How Brewery Disabling works:
   To make the plugin comapitble with the Brewery plugin, cpotion crafting is not directly disabled. Instead, the refuling of brewing stands is blocked.
