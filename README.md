@@ -3,7 +3,7 @@
 ## What is this?
 - A Minecraft spigot plugin for version 1.16.
 - Disables brewing, splash potions, lingering potions, and drinkable potions
-- Fully configurable with the config.yml file
+Fully configurable with the config.yml file
 
 To Reload the Plugin:
   Use /sbd reload
