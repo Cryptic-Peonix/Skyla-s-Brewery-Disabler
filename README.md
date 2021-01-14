@@ -6,10 +6,12 @@
 - Fully configurable with the config.yml file
 
 ## The Config File
+See [this](https://github.com/Cryptic-Peonix/Skyla-s-Brewery-Disabler/wiki/The-Config-File) wiki page about the plugins config
+
 ### To Reload the Plugin after config editing:
     Use the command /sbd reload
 
-## More in-depth Plugin info
-COMING SOON
+## Wiki
+[Visit the Wiki!](https://github.com/Cryptic-Peonix/Skyla-s-Brewery-Disabler/wiki)
 
 
