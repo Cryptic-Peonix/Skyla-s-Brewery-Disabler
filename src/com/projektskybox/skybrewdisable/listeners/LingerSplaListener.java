@@ -11,7 +11,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionType;
 
 public class LingerSplaListener implements Listener {
 
@@ -25,6 +27,7 @@ public class LingerSplaListener implements Listener {
 		boolean lingerEnable = plugin.getConfig().getBoolean("lingering-potions.enabled");
 		boolean splashDelete = plugin.getConfig().getBoolean("splash-potions.delete-item");
 		boolean lingerDelete = plugin.getConfig().getBoolean("lingering-potions.delete-item");
+		boolean weaknessDisabled = plugin.getConfig().getBoolean("splash-potions.disable-weakness");
 
 		Random random = new Random();
 
@@ -53,7 +56,10 @@ public class LingerSplaListener implements Listener {
 					}
 				}
 			} else if (isMain.getType() == Material.SPLASH_POTION) {
-				if (splashEnable == false) {
+				PotionMeta weakMainMeta = (PotionMeta) isMain.getItemMeta();
+				if (weaknessDisabled == false && weakMainMeta.getBasePotionData().getType() == PotionType.WEAKNESS) {
+					return;
+				} else if (splashEnable == false) {
 					event.setCancelled(true);
 					event.getPlayer().sendMessage(splashMessage);
 					if (splashDelete == true) {
@@ -75,6 +81,10 @@ public class LingerSplaListener implements Listener {
 					}
 				}
 			} else if (isOff.getType() == Material.SPLASH_POTION) {
+				PotionMeta weakOffMeta = (PotionMeta) isOff.getItemMeta();
+				if (weaknessDisabled == false && weakOffMeta.getBasePotionData().getType() == PotionType.WEAKNESS) {
+					return;
+				}
 				if (splashEnable == false) {
 					event.setCancelled(true);
 					event.getPlayer().sendMessage(splashMessage);
@@ -85,7 +95,7 @@ public class LingerSplaListener implements Listener {
 						event.getPlayer().sendMessage(ChatColor.RED + splashDeleteMessage);
 					}
 				}
-			} 
+			}
 		}
 	}
 
