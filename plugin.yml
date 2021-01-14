@@ -1,7 +1,7 @@
 name: SkylasBrewingDisabler
 author: Skyla
 main: com.projektskybox.skybrewdisable.P
-version: 1.3a
+version: 1.3b
 description: Can disable potion brewing, splash potions, lingering potions, and the drinking of potions
 api-version: 1.16
 commands:
