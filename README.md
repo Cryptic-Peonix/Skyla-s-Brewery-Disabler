@@ -4,6 +4,7 @@
 - A Minecraft spigot plugin for version 1.16.
 - Disables brewing, splash potions, lingering potions, and drinkable potions
 - Fully configurable with the config.yml file
+- Fully compatibe with brewery!
 
 ## The Config File
 See [this](https://github.com/Cryptic-Peonix/Skyla-s-Brewery-Disabler/wiki/The-Config-File) wiki page about the plugins config
