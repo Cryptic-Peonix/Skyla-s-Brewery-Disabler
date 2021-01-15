@@ -24,6 +24,8 @@ public class P extends JavaPlugin{
 	
 	//True if an update is available, false if not
 	public static boolean updateAvailable = false;
+	public static String currentVersion;
+	public static String newestVersion;
 	
 	//True if the config is mismatched, false is not
 	public static boolean mismatchedConfig = false;
@@ -56,8 +58,8 @@ public class P extends JavaPlugin{
 		
 		//Checks the spigot API to see if the plugin needs an update
 		new UpdateChecker(this, 87836).getVersion(version -> {
-			//System.out.println(version);
-			//System.out.println(this.getDescription().getVersion());
+			currentVersion = this.getDescription().getVersion();
+			newestVersion = version;
 			if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
 				logger.info("There is no update available");
 				updateAvailable = false;
@@ -70,7 +72,7 @@ public class P extends JavaPlugin{
 		//The config version of the extracted config file
 		String configVersion = this.getConfig().getString("config-version");
 		String currentConfigVersion = "1.4";
-		if (!(configVersion == currentConfigVersion)) {
+		if (!(configVersion.equalsIgnoreCase(currentConfigVersion))) {
 			logger.info("Mismatched Configs! Please replace your config file!");
 			mismatchedConfig = true;
 		}
