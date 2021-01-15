@@ -15,15 +15,30 @@ import com.projektskybox.skybrewdisable.listeners.SplashLingerDispenserListener;
 
 public class P extends JavaPlugin{
 	
-	private static P instance;
+private static P instance;
 	
+	//True if an update is available, false if not
+	public static boolean updateAvailable = false;
+	
+	//True if the config is mismatched, false is not
+	public static boolean mismatchedConfig = false;
+	
+	//creates an instance to reference in other classes
 	public static P getInstance() {
 		return instance;
 	}
 	
+	/**
+	 * Gets the Instance
+	 * Creates a logger
+	 * Loads the config
+	 * Enables listeners and commands
+	 * Runs the update checker
+	 */
 	@Override
 	public void onEnable() {
 		instance = this;
+		Logger logger = this.getLogger();
 		this.saveDefaultConfig();
 		
 		System.out.println("[Skyla's Brewing Disabler] Start");
@@ -31,23 +46,53 @@ public class P extends JavaPlugin{
 		this.enableListeners();
 		this.enableCommands();
 		
+		//Checks the spigot API to see if the plugin needs an update
+		new UpdateChecker(this, 87836).getVersion(version -> {
+			if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+				logger.info("There is no update available");
+				updateAvailable = false;
+			} else {
+				logger.info("Update Available!");
+				updateAvailable = true;
+			}
+		});
+		
+		//The config version of the extracted config file
+		String configVersion = this.getConfig().getString("config-version");
+		String currentConfigVersion = "1.4";
+		if (!(configVersion == currentConfigVersion)) {
+			logger.info("Mismatched Configs! Please replace your config file!");
+			mismatchedConfig = true;
+		}
+		
 	}
 	
+	/**
+	 * Saves the config, sends a stop message, unregisters all events/commands, and stops the plugin
+	 */
 	@Override
 	public void onDisable() {
 		this.saveDefaultConfig();
 		System.out.println("[Skyla's Brewing Disabler] Stop");
 		HandlerList.unregisterAll();
 		instance = null;
+		updateAvailable = false;
 	}
 	
+	/**
+	 * Turns on all of the plugin listeners
+	 */
 	public void enableListeners() {
 		getServer().getPluginManager().registerEvents(new BrewListener(), this);
 		getServer().getPluginManager().registerEvents(new SplashLingerDispenserListener(), this);
 		getServer().getPluginManager().registerEvents(new LingerSplaListener(), this);
 		getServer().getPluginManager().registerEvents(new PotionDrinkListener(), this);
+		getServer().getPluginManager().registerEvents(new SendUpdateMessage(), this);
 	}
 	
+	/**
+	 * Enables all of the plugin commands
+	 */
 	public void enableCommands() {
 		this.getCommand("enable-potion-making").setExecutor(new DisableBrew());
 		this.getCommand("skybrewdisable").setExecutor(new ReloadCommand());

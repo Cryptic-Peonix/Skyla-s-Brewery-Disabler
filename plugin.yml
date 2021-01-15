@@ -1,7 +1,7 @@
 name: SkylasBrewingDisabler
 author: Skyla
 main: com.projektskybox.skybrewdisable.P
-version: 1.3b
+version: 1.4a
 description: Can disable potion brewing, splash potions, lingering potions, and the drinking of potions
 api-version: 1.16
 commands:
@@ -25,7 +25,7 @@ commands:
       description: Toggles lingering potions on/off, toggles deleting them after use on/off, and toggles their usage in dispensers on/off
       permission: skybrewdisable.linger-potions
       usage: "Usage: /<command> [enabled/delete-item/can-use-in-dispensers] [true/false]"
-      permission-message:Not allowed!
+      permission-message: Not allowed!
    potion-drinking:
       description: Toggles the ability to drink potions on/off. Toggles deleting the potion item after attempted use on/off.
       permission: skybrewdisable.potion-drinking
