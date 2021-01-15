@@ -1,8 +1,11 @@
 package com.projektskybox.skybrewdisable;
 
+import java.util.logging.Logger;
+
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.projektskybox.skybrewdisable.bstats.MetricsLite;
 import com.projektskybox.skybrewdisable.commands.DisableBrew;
 import com.projektskybox.skybrewdisable.commands.DisableLinger;
 import com.projektskybox.skybrewdisable.commands.DisableSplash;
@@ -11,11 +14,13 @@ import com.projektskybox.skybrewdisable.commands.ReloadCommand;
 import com.projektskybox.skybrewdisable.listeners.BrewListener;
 import com.projektskybox.skybrewdisable.listeners.LingerSplaListener;
 import com.projektskybox.skybrewdisable.listeners.PotionDrinkListener;
+import com.projektskybox.skybrewdisable.listeners.SendUpdateMessage;
 import com.projektskybox.skybrewdisable.listeners.SplashLingerDispenserListener;
+import com.projektskybox.skybrewdisable.util.UpdateChecker;
 
 public class P extends JavaPlugin{
 	
-private static P instance;
+	private static P instance;
 	
 	//True if an update is available, false if not
 	public static boolean updateAvailable = false;
@@ -43,11 +48,16 @@ private static P instance;
 		
 		System.out.println("[Skyla's Brewing Disabler] Start");
 		
+		@SuppressWarnings("unused")
+		MetricsLite metrics = new MetricsLite(this, 10009);
+		
 		this.enableListeners();
 		this.enableCommands();
 		
 		//Checks the spigot API to see if the plugin needs an update
 		new UpdateChecker(this, 87836).getVersion(version -> {
+			//System.out.println(version);
+			//System.out.println(this.getDescription().getVersion());
 			if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
 				logger.info("There is no update available");
 				updateAvailable = false;
