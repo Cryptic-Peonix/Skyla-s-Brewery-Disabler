@@ -22,7 +22,8 @@ public class SendUpdateMessage implements Listener {
 			if (P.updateAvailable == true) {
 				admin.sendMessage(
 						ChatColor.GOLD + "Sklyla's Brewing Disabler is outdated! Downnload the new version here: "
-								+ "https://www.spigotmc.org/resources/skylas-brewing-disabler.87836/");
+								+ "\n" + "https://www.spigotmc.org/resources/skylas-brewing-disabler.87836/");
+				admin.sendMessage(ChatColor.GREEN + "Current version: " + P.currentVersion + "\n" + "Latest Version: " + P.newestVersion);
 			}
 			// tell admin to replace the config if the versions are mismatched
 			if (P.mismatchedConfig == true) {
