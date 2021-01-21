@@ -15,4 +15,7 @@ See [this](https://github.com/Cryptic-Peonix/Skyla-s-Brewery-Disabler/wiki/The-C
 ## Wiki
 [Visit the Wiki!](https://github.com/Cryptic-Peonix/Skyla-s-Brewery-Disabler/wiki)
 
+## Spigot Resources Page
+[Visit the Spigot Page!](https://www.spigotmc.org/resources/skylas-brewing-disabler.87836/)
+
 
