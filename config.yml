@@ -1,5 +1,5 @@
 reload-message: "&a&lReloaded Skyla's Potion Disabler!"
-version: "1.5"
+version: "1.5a"
 brewing:
    enabled: false
 splash-potions:

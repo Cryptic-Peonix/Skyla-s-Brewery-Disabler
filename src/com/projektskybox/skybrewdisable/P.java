@@ -62,7 +62,7 @@ public class P extends JavaPlugin {
 
         //The config version of the extracted config file
         String configVersion = this.getConfig().getString("config-version");
-        String currentConfigVersion = "1.5";
+        String currentConfigVersion = "1.5a";
         if (!(configVersion.equalsIgnoreCase(currentConfigVersion))) {
             logger.info("Mismatched Configs! Please replace your config file!");
             mismatchedConfig = true;
