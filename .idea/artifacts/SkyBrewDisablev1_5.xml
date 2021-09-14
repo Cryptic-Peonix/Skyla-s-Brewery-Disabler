@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="SkyBrewDisablev1.5">
+    <output-path>$PROJECT_DIR$/out/artifacts/SkyBrewDisablev1_5</output-path>
+    <root id="archive" name="SkyBrewDisablev1.5.jar">
+      <element id="module-output" name="Skyla-s-Brewery-Disabler" />
+      <element id="file-copy" path="$PROJECT_DIR$/config.yml" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>
