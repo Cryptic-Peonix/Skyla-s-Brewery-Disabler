@@ -1,8 +1,5 @@
 package com.projektskybox.skybrewdisable.listeners;
 
-import java.util.List;
-import java.util.Random;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -14,6 +11,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionType;
+
+import java.util.List;
+import java.util.Random;
 
 //Author: Skyla
 public class LingerSplaListener implements Listener {
@@ -29,6 +29,8 @@ public class LingerSplaListener implements Listener {
 		boolean splashDelete = plugin.getConfig().getBoolean("splash-potions.delete-item");
 		boolean lingerDelete = plugin.getConfig().getBoolean("lingering-potions.delete-item");
 		boolean weaknessDisabled = plugin.getConfig().getBoolean("splash-potions.disable-weakness");
+		boolean splashAdminOverride = plugin.getConfig().getBoolean("splash-potions.admin-override");
+		boolean lingerAdminOverride = plugin.getConfig().getBoolean("lingering-potions.admin-override");
 
 		Random random = new Random();
 
@@ -46,6 +48,8 @@ public class LingerSplaListener implements Listener {
 			ItemStack isOff = event.getPlayer().getInventory().getItemInOffHand();
 			// Lingering
 			if (isMain.getType() == Material.LINGERING_POTION) {
+				if (lingerAdminOverride && event.getPlayer().isOp())
+					return;
 				if (lingerEnable == false) {
 					event.setCancelled(true);
 					event.getPlayer().sendMessage(lingerMessage);
@@ -57,6 +61,8 @@ public class LingerSplaListener implements Listener {
 					}
 				}
 			} else if (isMain.getType() == Material.SPLASH_POTION) {
+				if (splashAdminOverride && event.getPlayer().isOp())
+					return;
 				PotionMeta weakMainMeta = (PotionMeta) isMain.getItemMeta();
 				if (weaknessDisabled == false && weakMainMeta.getBasePotionData().getType() == PotionType.WEAKNESS) {
 					return;
@@ -71,6 +77,8 @@ public class LingerSplaListener implements Listener {
 					}
 				}
 			} else if (isOff.getType() == Material.LINGERING_POTION) {
+				if (lingerAdminOverride && event.getPlayer().isOp())
+					return;
 				if (lingerEnable == false) {
 					event.setCancelled(true);
 					event.getPlayer().sendMessage(lingerMessage);
@@ -82,6 +90,8 @@ public class LingerSplaListener implements Listener {
 					}
 				}
 			} else if (isOff.getType() == Material.SPLASH_POTION) {
+				if (splashAdminOverride && event.getPlayer().isOp())
+					return;
 				PotionMeta weakOffMeta = (PotionMeta) isOff.getItemMeta();
 				if (weaknessDisabled == false && weakOffMeta.getBasePotionData().getType() == PotionType.WEAKNESS) {
 					return;

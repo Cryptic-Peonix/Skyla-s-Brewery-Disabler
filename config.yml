@@ -1,24 +1,26 @@
 reload-message: "&a&lReloaded Skyla's Potion Disabler!"
-version: "1.4a"
+version: "1.5"
 brewing:
    enabled: false
 splash-potions:
    enabled: false
    delete-item: false
    disable-dispensers: true
+   disable-weakness: false
    deny-use-messages: 
       - "Splash potions are disabled!"
       - "You can't do that!"
    item-deletion-message: "They are gone..."
+   admin-override: true
 lingering-potions:
    enabled: false
    delete-item: false
    disable-dispensers: true
-   disable-weakness: false
    deny-use-messages: 
       - "Lingering potions are disabled!"
       - "You can't do that!"
    item-deletion-message: "They are gone..."
+   admin-override: true
 drinking-potions:
    enabled: false
    delete-item: false
